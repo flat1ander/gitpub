@@ -7,16 +7,18 @@
     <title>Drinks Index</title>
 </head>
 <body>
-    <h1>At foo bar</h1>
-    <h2><%= drink.name %></h2>
-    <img src="<%= drink.image %>" alt="">
-    <h3>Price: $<%= drink.price %></h3>
+    <h1>Welcome to gitPub</h1>
+    <% for(let i = 0; i < food.length; i++){%>
+        <a href = "/food/<%= i %>">
+        <ul>
+            <li>Name: <%= food[i].name %></li>
+        </ul>
+   <% } %>
     <style type="text/css">
         body {
           color: blanchedalmond;
           background-color: steelblue;
         }
       </style>
-    <a href = "/drinks">Back</a>
 </body>
 </html>

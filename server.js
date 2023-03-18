@@ -1,7 +1,9 @@
 const express = require('express')
 const app = express()
 const models = require('./models/drinks')
+const model = require('./models/Food')
 const drinks = models.drinks
+const food = model.food
 
 app.get('/', (req, res) => {
     res.send("Welcome to the GitPub App")
@@ -12,9 +14,18 @@ app.get('/drinks', (req, res) => {
 })
 
 app.get('/drinks/:id', (req, res) => {
-    res.send(req.params.id)
+    const drink = drinks[req.params.id]
+    res.render('drinks_show.ejs', {drink})
 })
 
+app.get('/food', (req, res) => {
+    res.render('food_index.ejs', {food})
+})
+
+app.get('/food/:id', (req, res) => {
+    const foods = food[req.params.id]
+    res.render('food_show.ejs', {foods})
+})
 
 
 
